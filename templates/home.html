@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static 'css/style.css' %}">
+    <link rel="icon" href="../static/images/faviiocm.jpg" type="image/x-icon">
     <!-- fonts of website link of BARLOW -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +35,8 @@
                         <li><a href="{% url 'about' %}">About us</a></li>
                         <li><a href="{% url 'game' %}">Game</a></li>
                         <li>.</li>
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Signup</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'signup' %}">Signup</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,7 +44,7 @@
     </section>
 
     <section class="greeting">
-        <h1>Welcome to QUIZ GAME</h1>
+        <h1>This is the home page</h1>
     </section>
 
 

@@ -1,0 +1,10 @@
+.login_main_div{
+    margin: auto;
+    max-width: 1080px;
+    width: 100%;
+    padding: 40px 0px;
+}
+
+.form-control {
+    border: 2px solid black;
+}

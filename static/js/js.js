@@ -1,5 +1,8 @@
 console.log("hello world")
 
+
+
+
 var alerted=document.getElementById("remove")
 
 setTimeout(() => {
@@ -61,7 +64,7 @@ document.getElementById('quiz-form').addEventListener('submit', function(event){
     }
     else{
         alert("Incorrect answer. Quiz ended");
-        window.location.href="{% url 'index' %}";
+        window.location.href="/";
     }   
 });
 

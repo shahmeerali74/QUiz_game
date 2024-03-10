@@ -1,5 +1,7 @@
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.urls import reverse
 import requests
 def index(request):
     return render(request,'home.html')
@@ -14,3 +16,8 @@ def game(request):
     return render(request, 'game.html')
 # ,{'questions':questions}
 
+def login (request):
+    return render(request, 'login.html')
+
+def signup(request):
+    return render(request, 'signup.html')
