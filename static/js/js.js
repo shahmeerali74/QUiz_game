@@ -60,6 +60,7 @@ document.getElementById('quiz-form').addEventListener('submit', function(event){
             displayQuestion(questions[currentQuestionIndex]);
         } else{
             alert("Quiz Completed!!!")
+            window.location.href="/";
         } 
     }
     else{
