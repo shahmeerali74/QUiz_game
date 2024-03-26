@@ -20,9 +20,10 @@ from django.urls import path
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', views.index,name='index'),
+    path('',views.login, name='login'),
+    path('home/', views.index,name='index'),
     path('about/',views.about,name='about'),
     path('game/',views.game,name='game'),
-    path('login/',views.login, name='login'),
-    path('signup/',views.signup,name='signup')
+    path('signup/',views.signup,name='signup'),
+    path('signout/',views.signout,name='signout')
 ]

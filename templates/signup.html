@@ -35,9 +35,9 @@
             <div class="right">
                 <div class="items">
                     <ul>
-                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <!-- <li><a href="{% url 'index' %}">Home</a></li>
                         <li><a href="{% url 'about' %}">About us</a></li>
-                        <li><a href="{% url 'game' %}">Game</a></li>
+                        <li><a href="{% url 'game' %}">Game</a></li> -->
                         <li>.</li>
                         <li><a href="{% url 'login' %}">Login</a></li>
                         <li><a href="{% url 'signup' %}">Signup</a></li>
@@ -47,10 +47,37 @@
         </div>
     </section>
 
+    {% if email_error %}
+    <section class="alert_exciting">
+    <div id="remove" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Hola User!! Sorry for inconvienience.</strong> This email is already taken. Try different one. 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if notFillErr  %}
+    <section class="alert_exciting">
+        <div id="remove" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Hola User!! Sorry for inconvienience.</strong> Please Fill all the fields to continue. 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </section>
+    {% endif%}
+
+    {% if pass_err %}
+    <section class="alert_exciting">
+        <div id="remove" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Hola User!! Sorry for inconvienience.</strong> Your password dont match.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </section>
+    {% endif %}
+
     <section class="greeting">
         <section class="greeting">
             <div class="login_main_div">
-                <form method="post" action="{% url 'signup' %}">
+                <form method="post" action="{% url 'signup' %}" id="loginForm">
                     {% csrf_token %}
                     <!-- name -->
                     <div class="mb-3">
@@ -86,10 +113,10 @@
     </section>
 
 
+ 
 
-
-
-
+    <script src="../static/js/checkbox.js"></script>
+    <script src="../static/js/js.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

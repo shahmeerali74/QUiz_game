@@ -44,6 +44,8 @@ a{
 }
 .right .items ul li a{
     padding:0px 12px ;
+    color: #fff;
+    text-decoration: none;
     /* text-transform: capitalize; */
 }
 

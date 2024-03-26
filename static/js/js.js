@@ -60,12 +60,12 @@ document.getElementById('quiz-form').addEventListener('submit', function(event){
             displayQuestion(questions[currentQuestionIndex]);
         } else{
             alert("Quiz Completed!!!")
-            window.location.href="/";
+            window.location.href="/home";
         } 
     }
     else{
         alert("Incorrect answer. Quiz ended");
-        window.location.href="/";
+        window.location.href="/home"
     }   
 });
 
