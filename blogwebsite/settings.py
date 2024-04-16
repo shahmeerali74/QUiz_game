@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'blogwebsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shahmeer',
+        'NAME': 'loginqzgame',
         'USER': 'root',
         'PASSWORD':'',
         'HOST': 'localhost',

@@ -74,6 +74,24 @@
     </section>
     {% endif %}
 
+    {% if notLoginErr %}
+    <section class="alert_exciting">
+        <div id="" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Hola User!! Sorry for inconvienience.</strong> Please signup first.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if db_connection_err %}
+    <section class="alert_exciting">
+        <div id="" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Hola User!! Sorry for inconvienience.</strong> Please try again after some time.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </section>    
+    {% endif %}
+
     <section class="greeting">
         <section class="greeting">
             <div class="login_main_div">

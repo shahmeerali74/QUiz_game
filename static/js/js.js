@@ -7,7 +7,7 @@ var alerted=document.getElementById("remove")
 
 setTimeout(() => {
     alerted.style.display=('none');
-}, 2000);
+}, 3000);
 
 
 
@@ -23,26 +23,68 @@ function fetchQuestions(){
 });
 }
 
+
+
+
+function shuffleArray(array) {
+    const flattenedArray = array.flat(); // Flatten the nested array
+    for (let i = flattenedArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flattenedArray[i], flattenedArray[j]] = [flattenedArray[j], flattenedArray[i]];
+    }
+    return flattenedArray;
+}
 function displayQuestion(question){
-    question_container=document.getElementById('question-container');
-    question_container.innerHTML=`
+    // Combine incorrect answers and correct answer into a single array
+    const allOptions = question.incorrect_answers.concat(question.correct_answer);
+    // Shuffle the combined array
+    const shuffledOptions = shuffleArray(allOptions);
+    
+    // Find the index of the correct answer in the shuffled options
+    const correctAnswerIndex = shuffledOptions.findIndex(option => option === question.correct_answer);
+    
+    // Move the correct answer to a random position within the shuffled options array
+    const randomIndex = Math.floor(Math.random() * (shuffledOptions.length - 1));
+    [shuffledOptions[correctAnswerIndex], shuffledOptions[randomIndex]] = [shuffledOptions[randomIndex], shuffledOptions[correctAnswerIndex]];
+
+    // Display the shuffled options in the HTML
+    question_container = document.getElementById('question-container');
+    question_container.innerHTML = `
     <p><strong>${question.question}</strong></p>
     <ul>
-        <li><input type="radio" name="question_${currentQuestionIndex}" value="${question.correct_answer}">${question.correct_answer}</li>
-        ${question.incorrect_answers.map(answer => `
+        ${shuffledOptions.map(answer => `
             <li><input type="radio" name="question_${currentQuestionIndex}" value="${answer}">${answer}</li>
         `).join('')}
     </ul>
-`
-
-
-    // console.log(question.question)
-    // console.log('Options:')
-    // question.incorrect_answers.forEach(element => {
-    //     console.log(element)
-    // });
-    // console.log(question.correct_answer);
+    `;
 }
+
+
+
+
+
+// function displayQuestion(question){
+//     const allOptions = question.incorrect_answers.concat(question.correct_answer);
+//     const shuffledOptions=shuffleArray(allOptions)
+//     question_container=document.getElementById('question-container');
+//     question_container.innerHTML=`
+//     <p><strong>${question.question}</strong></p>
+//     <ul>
+//         <li><input type="radio" name="question_${currentQuestionIndex}" value="${question.correct_answer}">${question.correct_answer}</li>
+//         ${shuffledOptions.map(answer => `
+//             <li><input type="radio" name="question_${currentQuestionIndex}" value="${answer}">${answer}</li>
+//         `).join('')}
+//     </ul>
+// `
+
+
+//     // console.log(question.question)
+//     // console.log('Options:')
+//     // question.incorrect_answers.forEach(element => {
+//     //     console.log(element)
+//     // });
+//     // console.log(question.correct_answer);
+// }
 
 document.getElementById('quiz-form').addEventListener('submit', function(event){
     event.preventDefault();

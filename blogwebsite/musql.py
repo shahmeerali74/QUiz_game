@@ -1,10 +1,14 @@
 import mysql.connector as mysql
 
+host="localhost"
+user="root"
+password=""
+database="loginqzgame"
 
 db= mysql.connect(
-    host="localhost",
-    user="root",
-    passwd="",
+    host=host,
+    user=user,
+    passwd=password,
 )
 
 print (db)
