@@ -23,4 +23,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Run the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "QUiz_game.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "blogwebsite.wsgi:application"]
