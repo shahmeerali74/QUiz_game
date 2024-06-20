@@ -79,7 +79,7 @@ def signup(request):
         confirm_password=request.POST.get('confirm_password')
 
         if not name or not email or not password or not confirm_password:
-            return render(request,'signup.html',{'notFillErr':'please fill all the fields'})
+            return render(request,'login.html',{'notFillErr':'please fill all the fields'})
 
         if password != confirm_password:
             return render(request,'signup.html',{'pass_err':'password and cpassword dont match'})

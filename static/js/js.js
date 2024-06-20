@@ -13,9 +13,9 @@ setTimeout(() => {
 
 
 let currentQuestionIndex=0 
-
+// https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple
 function fetchQuestions(){
-    fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple').then((response)=>{
+    fetch('http://localhost:8081/api/').then((response)=>{
     return response.json();
 }).then((data)=>{
     questions=data.results;
@@ -26,14 +26,23 @@ function fetchQuestions(){
 
 
 
+// function shuffleArray(array) {
+//     const flattenedArray = array.flat(); // Flatten the nested array
+//     for (let i = flattenedArray.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [flattenedArray[i], flattenedArray[j]] = [flattenedArray[j], flattenedArray[i]];
+//     }
+//     return flattenedArray;
+// }
+
 function shuffleArray(array) {
-    const flattenedArray = array.flat(); // Flatten the nested array
-    for (let i = flattenedArray.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [flattenedArray[i], flattenedArray[j]] = [flattenedArray[j], flattenedArray[i]];
+        [array[i], array[j]] = [array[j], array[i]];
     }
-    return flattenedArray;
+    return array;
 }
+
 function displayQuestion(question){
     // Combine incorrect answers and correct answer into a single array
     const allOptions = question.incorrect_answers.concat(question.correct_answer);
